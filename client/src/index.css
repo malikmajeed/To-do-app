@@ -32,10 +32,13 @@ code {
 
 .todo-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items:  center ;
+  justify-content: space-around;
   gap: 1rem;
-  max-width: 400px;
-  margin: auto;
+  border: 1px solid blueviolet;
+  max-width: 600px;
+  margin: 40px auto;
   padding: 1.5rem;
   background: #f9f9f9;
   border-radius: 8px;
@@ -46,6 +49,7 @@ code {
   font-weight: bold;
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 0.5rem;
 }
 
@@ -69,8 +73,10 @@ code {
   resize: vertical;
 }
 
-.todo-form input[type="submit"] {
+.todo-form button[type="submit"] {
   background: #007bff;
+  justify-self: bottom ;
+  align-self: bottom;
   color: white;
   padding: 0.7rem;
   border: none;

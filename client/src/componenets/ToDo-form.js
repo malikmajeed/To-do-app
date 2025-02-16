@@ -40,18 +40,19 @@ const ToDo = () => {
           onChange={(e) => setTask(e.target.value)}
         />
       </label>
-      
+     
 
       <label className="todo-form-label">
         Desctiption
-        <textarea
+        <input
         name="description"
+          type="text"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setTask(e.target.value)}
         />
       </label>
 
-      <input type="submit" />
+      <button type="submit">Add Task</button>
     </form>
   );
 };

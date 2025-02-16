@@ -19,6 +19,6 @@ app.get('/', (req,res)=>{
     res.send('HOME PAGE');
     console.log('home page');
 })
-
-app.listen(3000,
+const PORT=3000;
+app.listen(PORT,
     (console.log('server islistening at port 3000')))
