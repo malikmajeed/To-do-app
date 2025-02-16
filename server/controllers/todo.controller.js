@@ -4,10 +4,11 @@ const Task = require("../models/todo.model");
 
 const addTask = async (req, res) => {
   try {
-    const { title, description, status } = req.body;
+    console.log('hit function')
+    const { title, description } = req.body;
     console.log("Controller hit");
 
-    const newTask = new Task({ title, description, status });
+    const newTask = new Task({ title, description });
     console.log(newTask);
 
     await newTask.save();
@@ -20,6 +21,30 @@ const addTask = async (req, res) => {
     });
   }
 };
+
+
+//geting all task
+
+
+const getAllTasks =async(req, res)=>{
+  try{
+    const allTasks = await Task.find();
+
+    if(allTasks.length==0){
+      res.status(404).send('No complaint found')
+    }
+    else{
+      res.status(200).send(allTasks)
+    }
+
+
+
+  }catch(error)
+  {
+    console.log('An Error has occured: ',error)
+    res.status(500).json('An error has occured', error)
+  }
+}
 
 //controller for deleting tasks
 const deleteTask = async (req, res) => {
@@ -54,4 +79,4 @@ const updateTask = async (req, res) => {
   }
 };
 
-module.exports = { addTask, deleteTask, updateTask };
+module.exports = { addTask, deleteTask, updateTask,getAllTasks };

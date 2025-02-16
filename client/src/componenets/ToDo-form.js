@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const ToDo = () => {
+const ToDoForm= ({onTaskAdded}) => {
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
 
@@ -10,17 +10,20 @@ const ToDo = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        const response = await axios.post("http://localhost:3000/", {
-            task,
-            description,
-        });
 
-        console.log(response);
+      console.log('sending func')
+        const response = await axios.post("http://localhost:3000/", {
+            title:task,
+            description:description,
+        });
+        if(response){console.log('success')}
+        console.log("Task added: ",response);
 
         if(response.status === 200){
             console.log("Task added successfully");
             setTask("");
             setDescription("");
+            onTaskAdded();
         alert("Task added successfully");
         }
 
@@ -40,21 +43,22 @@ const ToDo = () => {
           onChange={(e) => setTask(e.target.value)}
         />
       </label>
-     
-
       <label className="todo-form-label">
-        Desctiption
+        Description
         <input
         name="description"
           type="text"
           value={description}
-          onChange={(e) => setTask(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </label>
+     
+
+     
 
       <button type="submit">Add Task</button>
     </form>
   );
 };
 
-export { ToDo };
+export default ToDoForm;

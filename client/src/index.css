@@ -7,6 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 
+html, body, #root {
+  height: 100%;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -22,13 +35,7 @@ code {
   color: white;
   z-index: 100;
 }
-/* 
-.body{
-  display: flex;
-  padding: 100px 50px;
-  justify-content: center;
-  align-items: center;
-} */
+
 
 .todo-form {
   display: flex;
@@ -91,3 +98,89 @@ code {
 }
 
 
+.todo-table {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1000px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.todo-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+}
+
+.todo-table thead {
+  background-color:#007bff;
+  color: white;
+ 
+}
+
+.todo-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 3px solid #ecf0f1;
+}
+
+.todo-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  color: #34495e;
+}
+
+.todo-table tbody tr {
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.todo-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.todo-table tbody tr:hover {
+  background-color: #f1f4f7;
+  cursor: pointer;
+}
+
+.todo-table th:first-child,
+.todo-table td:first-child {
+  width: 10%;
+  text-align: center;
+}
+
+.todo-table th:last-child,
+.todo-table td:last-child {
+  width: 15%;
+  text-align: center;
+}
+
+/* Actions column styling */
+.todo-table td:last-child {
+  color: #3498db;
+  font-weight: 500;
+}
+
+.todo-table td:last-child:hover {
+  color: #2980b9;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .todo-table {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .todo-table th,
+  .todo-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

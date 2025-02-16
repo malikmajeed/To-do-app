@@ -1,24 +1,26 @@
-const express = require('express');
-const mongoose=require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const router = require("./router");
+
 const app = express();
+const PORT = 3000;
 
-const {addTask, deleteTask, updateTask} = require('./controllers/todo.controller')
-
-app.use(express.json());         
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use('/', router)
+       
 mongoose.connect("mongodb://localhost:27017/todolist")
 .then(()=>{console.log('mongodb Connected')})
 .catch((error)=>{
     console.log(`an Error has occured while connecting to mongodb ${error}`)
 })
 
-app.post('/', addTask);
-app.delete('/', deleteTask);
-app.put('/', updateTask)
 
-app.get('/', (req,res)=>{
-    res.send('HOME PAGE');
-    console.log('home page');
-})
-const PORT=3000;
+
+
+
+
 app.listen(PORT,
     (console.log('server islistening at port 3000')))
