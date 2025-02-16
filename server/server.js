@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose=require('mongoose');
 const app = express();
 
-const {addTask, deleteTask} = require('./controllers/todo.controller')
+const {addTask, deleteTask, updateTask} = require('./controllers/todo.controller')
 
 app.use(express.json());         
 mongoose.connect("mongodb://localhost:27017/todolist")
@@ -13,6 +13,7 @@ mongoose.connect("mongodb://localhost:27017/todolist")
 
 app.post('/', addTask);
 app.delete('/', deleteTask);
+app.put('/', updateTask)
 
 app.get('/', (req,res)=>{
     res.send('HOME PAGE');
