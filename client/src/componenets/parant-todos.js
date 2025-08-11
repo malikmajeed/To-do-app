@@ -4,8 +4,6 @@ import axios from 'axios';
 import ToDoForm  from './ToDo-form'
 import GetTodosCard from './get-todos-card'
 
-
-
 const ToDos = ()=>{
 
     const [todos, setTodos]=useState([]);
@@ -39,7 +37,5 @@ const ToDos = ()=>{
     );
 
 }
-
-
 
 export default ToDos;
