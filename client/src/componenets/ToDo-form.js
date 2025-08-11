@@ -5,8 +5,6 @@ const ToDoForm= ({onTaskAdded}) => {
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
 
-
-  //handling form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
@@ -52,9 +50,6 @@ const ToDoForm= ({onTaskAdded}) => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </label>
-     
-
-     
 
       <button type="submit">Add Task</button>
     </form>
