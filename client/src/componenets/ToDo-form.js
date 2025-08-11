@@ -6,6 +6,7 @@ const ToDoForm= ({onTaskAdded}) => {
   const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
+    // the react wraps the events along with properties such is target and target.value etc
     e.preventDefault();
     try{
 
