@@ -4,13 +4,7 @@ import axios from "axios";
 
 
 const GetTodosCard = ({todos}) => {
-    
-    //array to store all todos
-  
-
-
-   
-    return(
+   return(
         <div>
             <div className="todo-table">
                 <table>
@@ -34,13 +28,9 @@ const GetTodosCard = ({todos}) => {
                         <td>Actions</td>
                     </tr>
 
-
-
                     )
 
                     )}
-
-
 
                 </tbody>
 
